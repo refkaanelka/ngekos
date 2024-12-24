@@ -36,7 +36,7 @@ class CityResource extends Resource
                 ->required()
                 ->debounce(500)
                 ->reactive()
-                ->afterStateUpdate(function ($state, callable $set) {
+                ->afterStateUpdated(function ($state, $set) {
                     $set('slug', Str::slug($state));
                 }),
                 Forms\Components\Textinput::make('slug')
